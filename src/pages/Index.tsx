@@ -1,13 +1,26 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Hero3D from '@/components/Hero3D';
+import ProductGallery from '@/components/ProductGallery';
+import BrandDrop from '@/components/BrandDrop';
+import About from '@/components/About';
+import Contact from '@/components/Contact';
+import AudioControl from '@/components/AudioControl';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="relative">
+      <AudioControl />
+      <Hero3D />
+      <ProductGallery />
+      <BrandDrop />
+      <About />
+      <Contact />
+      
+      <footer className="border-t border-border py-8 text-center">
+        <p className="text-sm text-muted-foreground">
+          © 2025 BohemianClo. All rights reserved.
+        </p>
+      </footer>
+    </main>
   );
 };
 
