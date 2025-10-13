@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import product1 from '@/assets/product1.jpg';
 import product2 from '@/assets/product2.jpg';
 import product3 from '@/assets/product3.jpg';
@@ -46,31 +47,39 @@ export default function ProductGallery() {
             Collection Preview
           </h2>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative aspect-[3/4] cursor-pointer overflow-hidden frosted-glass"
-                onClick={() => setSelectedImage(index)}
-              >
-                <img
-                  src={product.src}
-                  alt={product.alt}
-                  className="h-full w-full object-cover hover-depth"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-sm cinematic-text">{product.alt.split('—')[0]}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <TooltipProvider>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {products.map((product, index) => (
+                <Tooltip key={product.id} delayDuration={300}>
+                  <TooltipTrigger asChild>
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="group relative aspect-[3/4] cursor-pointer overflow-hidden frosted-glass"
+                      onClick={() => setSelectedImage(index)}
+                    >
+                      <img
+                        src={product.src}
+                        alt={product.alt}
+                        className="h-full w-full object-cover hover-depth"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                          <p className="text-sm cinematic-text">{product.alt.split('—')[0]}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </TooltipTrigger>
+                  <TooltipContent side="top" className="max-w-xs">
+                    <p className="text-sm">{product.alt}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </div>
+          </TooltipProvider>
         </motion.div>
       </section>
 
