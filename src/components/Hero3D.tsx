@@ -89,6 +89,13 @@ function AnimatedLogo() {
 }
 
 export default function Hero3D() {
+  const handleScrollToCollection = () => {
+    const gallerySection = document.querySelector('#collection-gallery');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -122,7 +129,10 @@ export default function Hero3D() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute bottom-12"
+          className="absolute bottom-12 cursor-pointer"
+          onClick={handleScrollToCollection}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
           <div className="flex flex-col items-center gap-2">
             <span className="text-xs cinematic-text text-muted-foreground">Scroll to explore</span>

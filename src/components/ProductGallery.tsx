@@ -34,7 +34,7 @@ export default function ProductGallery() {
 
   return (
     <>
-      <section className="relative min-h-screen w-full px-6 py-24 md:px-12 lg:px-24">
+      <section id="collection-gallery" className="relative min-h-screen w-full px-6 py-24 md:px-12 lg:px-24">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
