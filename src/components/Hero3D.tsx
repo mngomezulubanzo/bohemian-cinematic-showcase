@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import chromeLogo from '@/assets/chrome-logo-hero.jpg';
+
 export default function Hero3D() {
   const handleScrollToCollection = () => {
     const gallerySection = document.querySelector('#collection-gallery');
@@ -11,28 +11,19 @@ export default function Hero3D() {
     }
   };
   return <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background via-background/95 to-background">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
-        </div>
-      </div>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover z-0"
+      >
+        <source src="/bohemianclo.mp4" type="video/mp4" />
+      </video>
+      
+      <div className="absolute inset-0 z-[1] bg-background/20"></div>
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-          className="mb-8 w-full max-w-6xl"
-        >
-          <img 
-            src={chromeLogo} 
-            alt="BOHEMIANCLO ONLINE STORE COMING SOON STAY TAPPED INN - 3D chrome metallic logo" 
-            className="w-full h-auto object-contain drop-shadow-2xl"
-            style={{
-              filter: 'drop-shadow(0 20px 60px rgba(255,255,255,0.15)) drop-shadow(0 0 40px rgba(255,255,255,0.1))'
-            }}
-          />
-        </motion.div>
 
         <motion.p initial={{
         opacity: 0,
