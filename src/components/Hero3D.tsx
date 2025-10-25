@@ -34,7 +34,7 @@ export default function Hero3D() {
       }} transition={{
         duration: 1,
         delay: 0.8
-      }} className="metallic-text text-xl font-light md:text-2xl mt-32">
+      }} className="metallic-text text-xl font-light md:text-2xl mt-48">
           bohemianclo — unconverted self reflection
         </motion.p>
 
