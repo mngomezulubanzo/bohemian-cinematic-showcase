@@ -66,9 +66,10 @@ export default function ProductGallery() {
                         className="h-full w-full object-cover hover-depth"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                         <div className="absolute bottom-0 left-0 right-0 p-6">
-                          <p className="text-sm cinematic-text">{product.alt.split('—')[0]}</p>
+                          <p className="text-sm cinematic-text font-semibold mb-2">{product.alt.split('—')[0]}</p>
+                          <p className="text-xs text-muted-foreground leading-relaxed">{product.alt.split('—')[1]?.trim()}</p>
                         </div>
                       </div>
                     </motion.div>
