@@ -11,7 +11,7 @@ import product6 from '@/assets/product6.jpg';
 
 const products = [
   { id: 1, src: product1, alt: "BohemianClo — Jet black oversized hoodie with reflective white piping trim and signature flame logo, contemporary streetwear silhouette" },
-  { id: 2, src: product2, alt: "BohemianClo — Classic black graphic tee featuring 'Path to Blessing' print with bold typography, paired with earth-tone camo bucket hat and signature branding" },
+  { id: 2, src: product2, alt: "BohemianClo — Classic black graphic tee featuring 'Path to Blessing' print with bold typography, paired with BohemianClo camo skull cap and signature branding" },
   { id: 3, src: product3, alt: "BohemianClo — Pure white oversized tee with relaxed fit, complemented by crisp white branded beanie and olive-grey tactical camo cargo pants with custom patches" },
   { id: 4, src: product4, alt: "BohemianClo — Collective campaign featuring signature white oversized tees, monochrome branded beanies, and military-inspired camo bottoms, outdoor lifestyle aesthetic" },
   { id: 5, src: product5, alt: "BohemianClo — Duo editorial showcasing premium black hoodies with contrasting white reflective piping, urban architecture backdrop, elevated street luxury" },
