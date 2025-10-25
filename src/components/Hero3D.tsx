@@ -1,61 +1,5 @@
-import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, Center, Float } from '@react-three/drei';
-import * as THREE from 'three';
 import { motion } from 'framer-motion';
-function AnimatedLogo() {
-  const meshRef = useRef<THREE.Group>(null);
-  const particlesRef = useRef<THREE.Points>(null);
-
-  // Create particle system for ambient effect
-  const particles = useMemo(() => {
-    const count = 100;
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count * 3; i += 3) {
-      positions[i] = (Math.random() - 0.5) * 10;
-      positions[i + 1] = (Math.random() - 0.5) * 10;
-      positions[i + 2] = (Math.random() - 0.5) * 5;
-    }
-    return positions;
-  }, []);
-  useFrame(state => {
-    const time = state.clock.getElapsedTime();
-
-    // Subtle rotation and float
-    if (meshRef.current) {
-      meshRef.current.rotation.y = Math.sin(time * 0.2) * 0.1;
-      meshRef.current.rotation.x = Math.cos(time * 0.3) * 0.05;
-    }
-
-    // Particle drift
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = time * 0.05;
-    }
-  });
-  return <>
-      <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
-        <Center>
-          <group ref={meshRef}>
-            <Text fontSize={2} maxWidth={200} lineHeight={1} letterSpacing={0.1} font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff">
-              BC
-              <meshStandardMaterial color="#e6e6e6" metalness={0.8} roughness={0.2} emissive="#4b4b4b" emissiveIntensity={0.2} />
-            </Text>
-          </group>
-        </Center>
-      </Float>
-
-      <points ref={particlesRef}>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" count={particles.length / 3} array={particles} itemSize={3} />
-        </bufferGeometry>
-        <pointsMaterial size={0.03} color="#4b4b4b" transparent opacity={0.4} sizeAttenuation blending={THREE.AdditiveBlending} />
-      </points>
-
-      <ambientLight intensity={0.3} />
-      <spotLight position={[5, 5, 5]} angle={0.3} penumbra={1} intensity={1} castShadow />
-      <spotLight position={[-5, 5, -5]} angle={0.3} penumbra={1} intensity={0.5} />
-    </>;
-}
+import chromeLogo from '@/assets/chrome-logo-hero.jpg';
 export default function Hero3D() {
   const handleScrollToCollection = () => {
     const gallerySection = document.querySelector('#collection-gallery');
@@ -67,30 +11,28 @@ export default function Hero3D() {
     }
   };
   return <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Canvas camera={{
-        position: [0, 0, 5],
-        fov: 45
-      }} className="bg-background">
-          <AnimatedLogo />
-        </Canvas>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background via-background/95 to-background">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
+        </div>
       </div>
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        <motion.h1 initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 1,
-        delay: 0.5
-      }} className="cinematic-text mb-6 md:text-7xl lg:text-8xl text-7xl font-light">
-          BOHEMIANCLO ONLINE STORE
-          <br />
-          COMING SOON STAY TAPPED INN
-        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+          className="mb-8 w-full max-w-6xl"
+        >
+          <img 
+            src={chromeLogo} 
+            alt="BOHEMIANCLO ONLINE STORE COMING SOON STAY TAPPED INN - 3D chrome metallic logo" 
+            className="w-full h-auto object-contain drop-shadow-2xl"
+            style={{
+              filter: 'drop-shadow(0 20px 60px rgba(255,255,255,0.15)) drop-shadow(0 0 40px rgba(255,255,255,0.1))'
+            }}
+          />
+        </motion.div>
 
         <motion.p initial={{
         opacity: 0,
