@@ -87,9 +87,9 @@ export default function Hero3D() {
         duration: 1,
         delay: 0.5
       }} className="cinematic-text mb-6 md:text-7xl lg:text-8xl text-7xl font-light">
-          Online Store Website
+          BOHEMIANCLO ONLINE STORE
           <br />
-          Coming Soon
+          COMING SOON STAY TAPPED INN
         </motion.h1>
 
         <motion.p initial={{
