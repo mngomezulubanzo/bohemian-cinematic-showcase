@@ -3,12 +3,9 @@ import ProductGallery from '@/components/ProductGallery';
 import BrandDrop from '@/components/BrandDrop';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
-import AudioControl from '@/components/AudioControl';
-
 const Index = () => {
   return (
     <main className="relative">
-      <AudioControl />
       <Hero3D />
       <ProductGallery />
       <BrandDrop />
