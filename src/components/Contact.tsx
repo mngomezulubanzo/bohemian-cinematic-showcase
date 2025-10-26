@@ -75,7 +75,9 @@ export default function Contact() {
 
         <div className="mt-12 flex justify-center gap-6">
           <a
-            href="#"
+            href="https://www.instagram.com/bohemianclo/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Instagram"
           >
