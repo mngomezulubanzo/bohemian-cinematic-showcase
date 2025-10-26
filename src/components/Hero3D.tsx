@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import chromeLogo from '@/assets/chrome-logo-hero.jpg';
 
 export default function Hero3D() {
   const handleScrollToCollection = () => {
@@ -26,7 +25,7 @@ export default function Hero3D() {
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
 
-        <motion.div initial={{
+        <motion.p initial={{
         opacity: 0,
         y: 20
       }} animate={{
@@ -35,13 +34,9 @@ export default function Hero3D() {
       }} transition={{
         duration: 1,
         delay: 0.8
-      }} className="mt-48 max-w-5xl w-full px-4">
-          <img 
-            src={chromeLogo} 
-            alt="bohemianclo — unconverted self reflection" 
-            className="w-full h-auto"
-          />
-        </motion.div>
+      }} className="metallic-text text-xl font-light md:text-2xl mt-48">
+          bohemianclo — unconverted self reflection
+        </motion.p>
 
         <motion.div initial={{
         opacity: 0
