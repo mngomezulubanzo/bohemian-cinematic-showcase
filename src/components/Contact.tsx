@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
+import desertBg from '@/assets/desert-bg.jpg';
 
 export default function Contact() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -11,13 +12,14 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center px-6 py-24">
+    <section className="relative min-h-screen w-full flex items-center justify-center px-6 py-24" style={{ backgroundImage: `url(${desertBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className="absolute inset-0 bg-background/80" style={{ filter: 'brightness(0.4)' }} />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="mx-auto w-full max-w-2xl"
+        className="mx-auto w-full max-w-2xl relative z-10"
       >
         <h2 className="cinematic-text mb-4 text-center text-3xl font-light md:text-5xl">
           Get In Touch

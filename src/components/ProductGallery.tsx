@@ -8,6 +8,7 @@ import product3 from '@/assets/product3.jpg';
 import product4 from '@/assets/product4.jpg';
 import product5 from '@/assets/product5.jpg';
 import product6 from '@/assets/product6.jpg';
+import desertBg from '@/assets/desert-bg.jpg';
 
 const products = [
   { id: 1, src: product1, alt: "BohemianClo — Jet black oversized hoodie with reflective white piping trim and signature flame logo, contemporary streetwear silhouette" },
@@ -35,13 +36,14 @@ export default function ProductGallery() {
 
   return (
     <>
-      <section id="collection-gallery" className="relative min-h-screen w-full px-6 py-24 md:px-12 lg:px-24">
+      <section id="collection-gallery" className="relative min-h-screen w-full px-6 py-24 md:px-12 lg:px-24" style={{ backgroundImage: `url(${desertBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+        <div className="absolute inset-0 bg-background/80" style={{ filter: 'brightness(0.4)' }} />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="mx-auto max-w-7xl"
+          className="mx-auto max-w-7xl relative z-10"
         >
           <h2 className="cinematic-text mb-16 text-center text-3xl font-light md:text-5xl">
             Collection Preview

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
+import desertBg from '@/assets/desert-bg.jpg';
 
 export default function BrandDrop() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -69,10 +70,12 @@ export default function BrandDrop() {
     <section
       ref={sectionRef}
       className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-6 py-24"
+      style={{ backgroundImage: `url(${desertBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
     >
+      <div className="absolute inset-0 bg-background/80" style={{ filter: 'brightness(0.4)' }} />
       {/* Particle burst effect */}
       {hasAnimated && (
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none z-10">
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
@@ -90,7 +93,7 @@ export default function BrandDrop() {
         </div>
       )}
 
-      <div ref={brandRef} className="text-center">
+      <div ref={brandRef} className="text-center relative z-10">
         <h2 className="text-7xl font-bold md:text-9xl lg:text-[12rem] leading-none">
           <span className="metallic-text">BOHEMIAN</span>
           <br />
